@@ -2,17 +2,17 @@
 
 import 'package:app_valorant/app/app_module.dart';
 import 'package:app_valorant/app/app_routes.dart';
-import 'package:app_valorant/components/loadingLists_widget.dart';
+import 'package:app_valorant/components/agentContainer_widget.dart';
+import 'package:app_valorant/components/loadinglists_widget.dart';
 import 'package:app_valorant/components/scaffold_default.dart';
 import 'package:app_valorant/models/listAgents_model.dart';
-import 'package:app_valorant/models/requestDefault_model.dart';
+import 'package:app_valorant/models/requestdefault_model.dart';
 import 'package:app_valorant/models/selected_page.dart';
 import 'package:app_valorant/shared/colors.dart';
 import 'package:app_valorant/shared/http_service.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:rxdart/subjects.dart';
 
 class HomePage extends StatefulWidget {
@@ -67,7 +67,7 @@ class _HomePageState extends State<HomePage> {
                       Expanded(
                         child: ListView(
                             children: snapshot.data!.data!
-                                .map((agent) => agentContainer(agent))
+                                .map((agent) => AgentContainer(agent: agent))
                                 .toList()),
                       ),
                     ],
@@ -100,29 +100,6 @@ class _HomePageState extends State<HomePage> {
                 return children;
               }),
         ));
-  }
-
-  Widget agentContainer(AgentModel agent) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: 16),
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: borderCard.withOpacity(0.2),
-          style: BorderStyle.solid,
-          width: 1.0,
-        ),
-        borderRadius: BorderRadius.circular(6.0),
-        gradient: LinearGradient(
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft,
-            stops: const [0.1, 0.4, 0.7, 0.9],
-            colors: agent.backgroundGradientColors!
-                .map((color) => HexColor(color).withOpacity(0.4))
-                .toList()),
-      ),
-      height: 90,
-      width: MediaQuery.sizeOf(context).width,
-    );
   }
 
   Future<ListAgentsModel> getListAgents() async {
