@@ -29,9 +29,9 @@ class _BottomSheetDefaultState extends State<BottomSheetDefault> {
           ),
           Container(
             padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.only(
+            decoration: BoxDecoration(
+              color: backgroundPage,
+              borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(6),
                 topRight: Radius.circular(6),
               ),
@@ -41,7 +41,7 @@ class _BottomSheetDefaultState extends State<BottomSheetDefault> {
                 Expanded(
                     child: Text(widget.title,
                         style: TextStyle(
-                            color: backgroundPage,
+                            color: textColor,
                             fontSize: 18.sp,
                             fontWeight: FontWeight.w600))),
                 InkWell(
@@ -61,14 +61,9 @@ class _BottomSheetDefaultState extends State<BottomSheetDefault> {
               ],
             ),
           ),
-          Container(
-            height: 0.3,
-            color: borderCard,
-          ),
           Expanded(
               child: Container(
-                  padding: const EdgeInsets.all(16.0),
-                  color: Colors.white,
+                  color: backgroundPage,
                   child: SingleChildScrollView(child: widget.child))),
         ]),
       ),

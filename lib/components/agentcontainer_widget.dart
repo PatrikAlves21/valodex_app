@@ -1,7 +1,9 @@
 // ignore_for_file: file_names
 
+import 'package:app_valorant/components/details_agents_modal.dart';
 import 'package:app_valorant/models/listAgents_model.dart';
 import 'package:app_valorant/shared/colors.dart';
+import 'package:app_valorant/shared/helpers_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -13,7 +15,11 @@ class AgentContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => print('object'),
+      onTap: () => Helpers.showModal(
+          context: context,
+          modal: DetailsAgentsModal(
+            agent: agent,
+          )),
       child: Container(
         margin: const EdgeInsets.only(bottom: 16),
         padding: const EdgeInsets.all(16),
