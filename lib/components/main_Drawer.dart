@@ -76,21 +76,19 @@ class _MainDrawerState extends State<MainDrawer> {
                 if (page == SelectedPage.AGENTS) {
                   return Navigator.of(context).pop();
                 }
-                Navigator.of(context).pushNamedAndRemoveUntil(
-                    '/home', (Route<dynamic> route) => false);
+                Navigator.of(context).pushReplacementNamed("/Home");
               },
             ),
             _menuItemButton(
-              icon: FontAwesomeIcons.check,
+              icon: FontAwesomeIcons.map,
               iconSize: 18,
-              title: "Nova rota",
-              selected: page == SelectedPage.AGENTS,
+              title: "Mapas",
+              selected: page == SelectedPage.MAPSPAGE,
               onTap: () async {
-                if (page == SelectedPage.AGENTS) {
+                if (page == SelectedPage.MAPSPAGE) {
                   return Navigator.of(context).pop();
                 }
-                Navigator.of(context).pushNamedAndRemoveUntil(
-                    '/home', (Route<dynamic> route) => false);
+                Navigator.of(context).pushReplacementNamed("/maps");
               },
             ),
           ],

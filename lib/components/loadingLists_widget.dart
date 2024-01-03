@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoadingListWidget extends StatelessWidget {
-  const LoadingListWidget({super.key});
+  final String? title;
+  const LoadingListWidget({super.key, this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,7 @@ class LoadingListWidget extends StatelessWidget {
             ),
             const SizedBox(width: 16),
             Text(
-              "Buscando informações...",
+              title ?? "Buscando informações...",
               style: TextStyle(
                 color: textColor,
                 fontSize: 16.sp,

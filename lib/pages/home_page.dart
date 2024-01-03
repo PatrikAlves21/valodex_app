@@ -13,7 +13,6 @@ import 'package:app_valorant/shared/http_service.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rxdart/subjects.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -25,12 +24,11 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   HttpService get httpService => AppModule.to.getDependency<HttpService>();
 
-  BehaviorSubject<bool> loading = BehaviorSubject.seeded(false);
-  BehaviorSubject<bool> loadingListAgents = BehaviorSubject.seeded(false);
+  late Future<ListAgentsModel> agents;
 
   @override
   void initState() {
-    getListAgents();
+    agents = getListAgents();
     super.initState();
   }
 
@@ -44,7 +42,7 @@ class _HomePageState extends State<HomePage> {
           width: MediaQuery.sizeOf(context).width,
           height: MediaQuery.sizeOf(context).height,
           child: FutureBuilder<ListAgentsModel>(
-              future: getListAgents(),
+              future: agents,
               builder: (BuildContext context,
                   AsyncSnapshot<ListAgentsModel> snapshot) {
                 Widget children;
@@ -103,8 +101,6 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<ListAgentsModel> getListAgents() async {
-    loadingListAgents.add(true);
-
     Response response = await httpService
         .get(AppRoutes.agents, queryParams: {...RequestDefault.payloadAgents});
 

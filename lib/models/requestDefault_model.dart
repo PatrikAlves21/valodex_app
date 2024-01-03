@@ -7,4 +7,6 @@ class RequestDefault {
     'isPlayableCharacter': true,
     'language': 'pt-BR'
   };
+
+  static Map<String, dynamic> language = {'language': 'pt-BR'};
 }
