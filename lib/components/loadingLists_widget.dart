@@ -1,8 +1,9 @@
 // ignore_for_file: file_names
 
-import 'package:app_valorant/shared/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../shared/app_colors.dart';
 
 class LoadingListWidget extends StatelessWidget {
   final String? title;

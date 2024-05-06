@@ -3,11 +3,13 @@
 import 'package:app_valorant/app/app_bloc.dart';
 import 'package:app_valorant/app/app_module.dart';
 import 'package:app_valorant/models/selected_page.dart';
-import 'package:app_valorant/shared/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import '../shared/app_colors.dart';
+import '../shared/material_colors.dart';
 
 class MainDrawer extends StatefulWidget {
   final SelectedPage? page;
@@ -95,12 +97,12 @@ class _MainDrawerState extends State<MainDrawer> {
         ),
         bottomSheet: BottomSheet(
           elevation: 0,
-          backgroundColor: AppColors.grey,
+          backgroundColor: AppMaterialColor.valorantAppColors,
           builder: (BuildContext context) {
             return Container(
               width: double.infinity,
               decoration: const BoxDecoration(
-                color: AppColors.grey,
+                color: AppMaterialColor.valorantAppColors,
               ),
               child: const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

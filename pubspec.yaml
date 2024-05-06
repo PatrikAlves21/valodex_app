@@ -71,18 +71,14 @@ flutter:
     - assets/images/logo.svg
 
   fonts:
-    - family: Open Sans
+    - family: Karantina
       fonts:
-        - asset: assets/fonts/OpenSans/OpenSans-Light.ttf
+        - asset: assets/fonts/Karantina/Karantina-Light.ttf
           weight: 300
-        - asset: assets/fonts/OpenSans/OpenSans-Regular.ttf
+        - asset: assets/fonts/Karantina/Karantina-Regular.ttf
           weight: 400
-        - asset: assets/fonts/OpenSans/OpenSans-Semibold.ttf
-          weight: 600
-        - asset: assets/fonts/OpenSans/OpenSans-Bold.ttf
+        - asset: assets/fonts/Karantina/Karantina-Bold.ttf
           weight: 700
-        - asset: assets/fonts/OpenSans/OpenSans-ExtraBold.ttf
-          weight: 800
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

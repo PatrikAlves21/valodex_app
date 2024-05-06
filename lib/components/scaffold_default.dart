@@ -1,9 +1,10 @@
 import 'package:app_valorant/components/main_Drawer.dart';
 import 'package:app_valorant/models/selected_page.dart';
-import 'package:app_valorant/shared/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
+
+import '../shared/app_colors.dart';
 
 class ScaffoldDefault extends StatefulWidget {
   @required

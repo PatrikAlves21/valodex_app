@@ -2,11 +2,12 @@
 
 import 'package:app_valorant/components/details_agents_modal.dart';
 import 'package:app_valorant/models/listAgents_model.dart';
-import 'package:app_valorant/shared/colors.dart';
 import 'package:app_valorant/shared/helpers_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hexcolor/hexcolor.dart';
+
+import '../shared/app_colors.dart';
 
 class AgentContainer extends StatelessWidget {
   final AgentModel agent;

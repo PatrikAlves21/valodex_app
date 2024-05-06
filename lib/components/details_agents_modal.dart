@@ -1,8 +1,9 @@
 import 'package:app_valorant/components/bottomsheetdefault_widget.dart';
 import 'package:app_valorant/models/listAgents_model.dart';
-import 'package:app_valorant/shared/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../shared/app_colors.dart';
 
 class DetailsAgentsModal extends StatelessWidget {
   final AgentModel agent;

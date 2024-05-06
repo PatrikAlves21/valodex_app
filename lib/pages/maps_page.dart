@@ -1,17 +1,17 @@
 import 'package:app_valorant/app/app_routes.dart';
 import 'package:app_valorant/components/loadinglists_widget.dart';
-import 'package:app_valorant/components/mapsContainer_widget.dart';
+import 'package:app_valorant/components/maps_container_widget.dart';
 import 'package:app_valorant/components/scaffold_default.dart';
 import 'package:app_valorant/models/maps_model.dart';
 import 'package:app_valorant/models/requestdefault_model.dart';
 import 'package:app_valorant/models/selected_page.dart';
-import 'package:app_valorant/shared/colors.dart';
 import 'package:app_valorant/shared/http_service.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../app/app_module.dart';
+import '../shared/app_colors.dart';
 
 class MapsPage extends StatefulWidget {
   const MapsPage({super.key});

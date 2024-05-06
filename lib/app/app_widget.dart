@@ -1,10 +1,11 @@
 import 'package:app_valorant/app/app_bloc.dart';
 import 'package:app_valorant/app/app_module.dart';
 import 'package:app_valorant/app/app_routes.dart';
-import 'package:app_valorant/shared/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../shared/material_colors.dart';
 
 class AppWidget extends StatefulWidget {
   const AppWidget({super.key});
@@ -40,12 +41,12 @@ class _AppWidgetState extends State<AppWidget> {
           title: 'Valorant App',
           navigatorKey: AppRoutes.navigatorKey,
           theme: ThemeData(
-            useMaterial3: false,
+            useMaterial3: true,
             scaffoldBackgroundColor: Colors.white,
-            primarySwatch: AppColors.grey,
+            primarySwatch: AppMaterialColor.valorantAppColors,
             canvasColor: Colors.transparent,
             textTheme: Theme.of(context).textTheme.apply(
-                  fontFamily: 'Open Sans',
+                  fontFamily: 'Karantina',
                 ),
           ),
           initialRoute: "/Home",

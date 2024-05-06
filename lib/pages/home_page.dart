@@ -8,11 +8,12 @@ import 'package:app_valorant/components/scaffold_default.dart';
 import 'package:app_valorant/models/listAgents_model.dart';
 import 'package:app_valorant/models/requestdefault_model.dart';
 import 'package:app_valorant/models/selected_page.dart';
-import 'package:app_valorant/shared/colors.dart';
 import 'package:app_valorant/shared/http_service.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../shared/app_colors.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

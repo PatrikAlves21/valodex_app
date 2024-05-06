@@ -1,9 +1,9 @@
 import 'package:app_valorant/components/loadinglists_widget.dart';
 import 'package:app_valorant/models/maps_model.dart';
-import 'package:app_valorant/shared/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../shared/app_colors.dart';
 
 class MapsContainer extends StatelessWidget {
   final MapsModel maps;
