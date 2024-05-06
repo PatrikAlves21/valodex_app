@@ -7,12 +7,11 @@ import 'package:app_valorant/components/loadinglists_widget.dart';
 import 'package:app_valorant/components/scaffold_default.dart';
 import 'package:app_valorant/models/listAgents_model.dart';
 import 'package:app_valorant/models/requestdefault_model.dart';
-import 'package:app_valorant/models/selected_page.dart';
+import 'package:app_valorant/models/enums.dart';
 import 'package:app_valorant/shared/http_service.dart';
+import 'package:app_valorant/styles/extension_texts.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../shared/app_colors.dart';
 
 class HomePage extends StatefulWidget {
@@ -39,7 +38,7 @@ class _HomePageState extends State<HomePage> {
         selectedPage: SelectedPage.AGENTS,
         body: Container(
           color: backgroundPage,
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
           width: MediaQuery.sizeOf(context).width,
           height: MediaQuery.sizeOf(context).height,
           child: FutureBuilder<ListAgentsModel>(
@@ -52,14 +51,8 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       Row(
                         children: [
-                          Text(
-                            'Agentes',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 18.sp,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
+                          const Text('Agentes')
+                              .h1(style: TextStyle(color: valorantPrimary)),
                         ],
                       ),
                       const SizedBox(height: 16),

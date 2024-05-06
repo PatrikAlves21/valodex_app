@@ -4,7 +4,7 @@ import 'package:app_valorant/components/maps_container_widget.dart';
 import 'package:app_valorant/components/scaffold_default.dart';
 import 'package:app_valorant/models/maps_model.dart';
 import 'package:app_valorant/models/requestdefault_model.dart';
-import 'package:app_valorant/models/selected_page.dart';
+import 'package:app_valorant/models/enums.dart';
 import 'package:app_valorant/shared/http_service.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';

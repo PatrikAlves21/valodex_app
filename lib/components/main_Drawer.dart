@@ -2,7 +2,7 @@
 
 import 'package:app_valorant/app/app_bloc.dart';
 import 'package:app_valorant/app/app_module.dart';
-import 'package:app_valorant/models/selected_page.dart';
+import 'package:app_valorant/models/enums.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';

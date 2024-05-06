@@ -1,5 +1,5 @@
 import 'package:app_valorant/components/main_Drawer.dart';
-import 'package:app_valorant/models/selected_page.dart';
+import 'package:app_valorant/models/enums.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
@@ -31,26 +31,18 @@ class ScaffoldDefaultState extends State<ScaffoldDefault> {
       resizeToAvoidBottomInset: true,
       backgroundColor: backgroundPage,
       appBar: AppBar(
-        bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(2.0),
-          child: Container(
-            color: textGrey,
-            height: 1.0,
-          ),
-        ),
         iconTheme: IconThemeData(
-          color: textGrey,
+          color: fontColorPrimary,
         ),
         backgroundColor: Colors.transparent,
         elevation: 0,
-        centerTitle: true,
+        centerTitle: false,
         title: SvgPicture.asset(
           'assets/images/logo.svg',
-          color: Colors.white,
           allowDrawingOutsideViewBox: true,
-          width: MediaQuery.sizeOf(context).height * 0.07,
+          width: MediaQuery.sizeOf(context).height * 0.15,
         ),
-        systemOverlayStyle: SystemUiOverlayStyle.dark,
+        systemOverlayStyle: SystemUiOverlayStyle.light,
       ),
       body: widget.body,
       endDrawer: SizedBox(
