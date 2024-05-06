@@ -39,7 +39,7 @@ class AgentModel {
   String? killfeedPortrait;
   String? background;
   List<String>? backgroundGradientColors;
-  Role? role;
+  RoleModel? role;
   List<Abilities>? abilities;
 
   AgentModel(
@@ -71,7 +71,7 @@ class AgentModel {
     killfeedPortrait = json['killfeedPortrait'];
     background = json['background'];
     backgroundGradientColors = json['backgroundGradientColors'].cast<String>();
-    role = json['role'] != null ? Role.fromJson(json['role']) : null;
+    role = json['role'] != null ? RoleModel.fromJson(json['role']) : null;
     if (json['abilities'] != null) {
       abilities = <Abilities>[];
       json['abilities'].forEach((v) {
@@ -104,21 +104,21 @@ class AgentModel {
   }
 }
 
-class Role {
+class RoleModel {
   String? uuid;
   String? displayName;
   String? description;
   String? displayIcon;
   String? assetPath;
 
-  Role(
+  RoleModel(
       {this.uuid,
       this.displayName,
       this.description,
       this.displayIcon,
       this.assetPath});
 
-  Role.fromJson(Map<String, dynamic> json) {
+  RoleModel.fromJson(Map<String, dynamic> json) {
     uuid = json['uuid'];
     displayName = json['displayName'];
     description = json['description'];

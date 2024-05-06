@@ -1,13 +1,10 @@
 // ignore_for_file: file_names
 
-import 'package:app_valorant/components/details_agents_modal.dart';
 import 'package:app_valorant/models/listAgents_model.dart';
-import 'package:app_valorant/shared/helpers_functions.dart';
+import 'package:app_valorant/shared/app_colors.dart';
+import 'package:app_valorant/styles/extension_texts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hexcolor/hexcolor.dart';
-
-import '../shared/app_colors.dart';
 
 class AgentContainer extends StatelessWidget {
   final AgentModel agent;
@@ -15,60 +12,39 @@ class AgentContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => Helpers.showModal(
-          context: context,
-          modal: DetailsAgentsModal(
-            agent: agent,
-          )),
-      child: Container(
-        margin: const EdgeInsets.only(bottom: 16),
-        padding: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: borderCard.withOpacity(0.2),
-            style: BorderStyle.solid,
-            width: 1.0,
+    return Container(
+      margin: const EdgeInsets.only(bottom: 16),
+      width: MediaQuery.sizeOf(context).width,
+      padding: const EdgeInsets.symmetric(horizontal: 8),
+      height: 56.sp,
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: strokeColor,
+          style: BorderStyle.solid,
+          width: 1,
+        ),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Stack(
+            children: [
+              Image.network(
+                agent.background!,
+              ),
+              Image.network(
+                agent.displayIcon!,
+              ),
+            ],
           ),
-          borderRadius: BorderRadius.circular(6.0),
-          gradient: LinearGradient(
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-              stops: const [0.1, 0.4, 0.7, 0.9],
-              colors: agent.backgroundGradientColors!
-                  .map((color) => HexColor(color).withOpacity(0.6))
-                  .toList()),
-        ),
-        width: MediaQuery.sizeOf(context).width,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(50.0),
-                  child: Image.network(
-                    agent.displayIcon!,
-                    height: MediaQuery.sizeOf(context).height * 0.1,
-                  ),
-                ),
-                const SizedBox(width: 8),
-                Expanded(
-                    child: textTitleSubtitle(
-                        title: agent.displayName,
-                        subTitle: agent.role?.displayName ?? '')),
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(50.0),
-                  child: Image.network(
-                    agent.role!.displayIcon!,
-                    height: MediaQuery.sizeOf(context).height * 0.05,
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
+          const SizedBox(width: 8),
+          Expanded(child: Text(agent.displayName!).h2()),
+          Image.network(
+            agent.role!.displayIcon!,
+            height: 20.sp,
+          ),
+        ],
       ),
     );
   }

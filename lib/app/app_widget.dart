@@ -38,7 +38,7 @@ class _AppWidgetState extends State<AppWidget> {
         });
 
         return MaterialApp(
-          title: 'Valorant App',
+          title: 'Valodex',
           navigatorKey: AppRoutes.navigatorKey,
           theme: ThemeData(
             useMaterial3: true,

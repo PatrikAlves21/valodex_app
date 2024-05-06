@@ -24,7 +24,7 @@ extension TextExtension on Text {
 
   Text h2({TextStyle? style}) {
     final TextStyle defaultStyle = TextStyle(
-        fontSize: 18.sp, fontWeight: FontWeight.w500, color: fontColorPrimary);
+        fontSize: 32.sp, fontWeight: FontWeight.w500, color: fontColorPrimary);
     return Text(data!,
         key: key,
         locale: locale,
@@ -41,7 +41,7 @@ extension TextExtension on Text {
 
   Text h3({TextStyle? style}) {
     final TextStyle defaultStyle = TextStyle(
-        fontSize: 16.sp, fontWeight: FontWeight.w500, color: fontColorPrimary);
+        fontSize: 18.sp, fontWeight: FontWeight.w500, color: fontColorPrimary);
     return Text(data!,
         key: key,
         locale: locale,
@@ -58,7 +58,7 @@ extension TextExtension on Text {
 
   Text h4({TextStyle? style}) {
     final TextStyle defaultStyle = TextStyle(
-        fontSize: 14.sp, fontWeight: FontWeight.w500, color: fontColorPrimary);
+        fontSize: 16.sp, fontWeight: FontWeight.w500, color: fontColorPrimary);
     return Text(data!,
         key: key,
         locale: locale,
@@ -75,7 +75,7 @@ extension TextExtension on Text {
 
   Text h5({TextStyle? style}) {
     final TextStyle defaultStyle = TextStyle(
-        fontSize: 12.sp, fontWeight: FontWeight.w500, color: fontColorPrimary);
+        fontSize: 14.sp, fontWeight: FontWeight.w500, color: fontColorPrimary);
     return Text(data!,
         key: key,
         locale: locale,
