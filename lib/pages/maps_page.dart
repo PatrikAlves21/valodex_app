@@ -3,7 +3,6 @@ import 'package:app_valorant/components/loadinglists_widget.dart';
 import 'package:app_valorant/components/maps_container_widget.dart';
 import 'package:app_valorant/components/scaffold_default.dart';
 import 'package:app_valorant/models/maps_model.dart';
-import 'package:app_valorant/models/requestdefault_model.dart';
 import 'package:app_valorant/models/enums.dart';
 import 'package:app_valorant/shared/http_service.dart';
 import 'package:dio/dio.dart';
@@ -11,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../app/app_module.dart';
+import '../models/request_default_model.dart';
 import '../shared/app_colors.dart';
 
 class MapsPage extends StatefulWidget {
@@ -63,7 +63,9 @@ class _MapsPageState extends State<MapsPage> {
                     Expanded(
                       child: ListView(
                           children: snapshot.data!.data!
-                              .map((maps) => MapsContainer(maps: maps))
+                              .map(
+                                (maps) => MapsContainer(maps: maps),
+                              )
                               .toList()),
                     ),
                   ],
@@ -100,8 +102,10 @@ class _MapsPageState extends State<MapsPage> {
   }
 
   Future<ReturnMapsList> getListMaps() async {
-    Response response = await httpService
-        .get(AppRoutes.maps, queryParams: {...RequestDefault.language});
+    Response response = await httpService.get(
+      AppRoutes.maps,
+      queryParams: {...RequestDefault.language},
+    );
 
     return ReturnMapsList.fromJson(response.data);
   }
