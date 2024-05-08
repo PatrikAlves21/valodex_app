@@ -15,7 +15,8 @@ class AgentContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.of(context).pushReplacementNamed("/detailsAgents");
+        Navigator.of(context).pushReplacementNamed("/detailsAgents",
+            arguments: {'arguments': agent});
       },
       child: Container(
         margin: const EdgeInsets.only(bottom: 16),
