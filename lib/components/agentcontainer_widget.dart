@@ -1,6 +1,5 @@
 // ignore_for_file: file_names
 
-import 'package:app_valorant/components/details_agents_page.dart';
 import 'package:app_valorant/models/listAgents_model.dart';
 import 'package:app_valorant/shared/app_colors.dart';
 import 'package:app_valorant/styles/extension_texts.dart';
@@ -15,8 +14,8 @@ class AgentContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.of(context).pushReplacementNamed("/detailsAgents",
-            arguments: {'arguments': agent});
+        Navigator.of(context)
+            .pushNamed("/detailsAgents", arguments: {'arguments': agent});
       },
       child: Container(
         margin: const EdgeInsets.only(bottom: 16),
