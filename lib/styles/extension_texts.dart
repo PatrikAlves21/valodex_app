@@ -89,4 +89,21 @@ extension TextExtension on Text {
         textWidthBasis: textWidthBasis,
         style: (this.style ?? defaultStyle).merge(style ?? defaultStyle));
   }
+
+  Text cardDetails({TextStyle? style}) {
+    final TextStyle defaultStyle = TextStyle(
+        fontSize: 22.sp, fontWeight: FontWeight.w300, color: fontColorTerciary);
+    return Text(data!,
+        key: key,
+        locale: locale,
+        maxLines: maxLines,
+        overflow: overflow,
+        semanticsLabel: semanticsLabel,
+        softWrap: softWrap,
+        strutStyle: strutStyle,
+        textAlign: textAlign,
+        textDirection: textDirection,
+        textWidthBasis: textWidthBasis,
+        style: (this.style ?? defaultStyle).merge(style ?? defaultStyle));
+  }
 }

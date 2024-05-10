@@ -97,13 +97,7 @@ class _AgentDetailsPageState extends State<AgentDetailsPage> {
             const SizedBox(
               width: 8,
             ),
-            Text(agent.role!.displayName!).h2(
-              style: TextStyle(
-                color: fontColorTerciary,
-                fontSize: 22.sp,
-                fontWeight: FontWeight.w300,
-              ),
-            ),
+            Text(agent.role!.displayName!).cardDetails(),
           ],
         ),
         const SizedBox(
@@ -122,13 +116,7 @@ class _AgentDetailsPageState extends State<AgentDetailsPage> {
         Row(
           children: [
             Expanded(
-              child: Text(agent.description!).h2(
-                style: TextStyle(
-                  color: fontColorTerciary,
-                  fontWeight: FontWeight.w300,
-                  fontSize: 22.sp,
-                ),
-              ),
+              child: Text(agent.description!).cardDetails(),
             )
           ],
         )
