@@ -95,7 +95,7 @@ class _MainDrawerState extends State<MainDrawer> {
             child: Icon(
               icon,
               color: textColor,
-              size: iconSize ?? 20.sp,
+              size: iconSize ?? 24.sp,
             ),
           ),
           const SizedBox(width: 12),
@@ -104,7 +104,7 @@ class _MainDrawerState extends State<MainDrawer> {
             style: TextStyle(
               color: textColor,
               fontWeight: FontWeight.w400,
-              fontSize: 16.sp,
+              fontSize: 18.sp,
             ),
           ),
         ],

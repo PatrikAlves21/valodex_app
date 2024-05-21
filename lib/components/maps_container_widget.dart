@@ -20,40 +20,47 @@ class MapsContainer extends StatelessWidget {
           if (snapshot.hasError) {
             return errorLoading();
           } else {
-            return Container(
-              margin: const EdgeInsets.only(bottom: 16),
-              width: MediaQuery.sizeOf(context).width,
-              height: 62.sp,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: strokeColor,
-                  style: BorderStyle.solid,
-                  width: 1,
-                ),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    height: 62.sp,
-                    width: 62.sp,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: NetworkImage(maps.splash!), fit: BoxFit.cover),
-                    ),
+            return InkWell(
+              onTap: () {
+                Navigator.of(context)
+                    .pushNamed("/detailsMaps", arguments: {'arguments': maps});
+              },
+              child: Container(
+                margin: const EdgeInsets.only(bottom: 16),
+                width: MediaQuery.sizeOf(context).width,
+                height: 62.sp,
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: strokeColor,
+                    style: BorderStyle.solid,
+                    width: 1,
                   ),
-                  const SizedBox(width: 16),
-                  Expanded(child: Text(maps.displayName!).h2()),
-                  Container(
-                    padding: const EdgeInsets.only(left: 16, right: 8),
-                    child: Icon(
-                      Icons.arrow_forward_ios,
-                      color: valorantPrimary,
-                      size: 16.sp,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      height: 62.sp,
+                      width: 62.sp,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: NetworkImage(maps.splash!),
+                            fit: BoxFit.cover),
+                      ),
                     ),
-                  )
-                ],
+                    const SizedBox(width: 16),
+                    Expanded(child: Text(maps.displayName!).h2()),
+                    Container(
+                      padding: const EdgeInsets.only(left: 16, right: 16),
+                      child: Icon(
+                        Icons.arrow_forward_ios,
+                        color: valorantPrimary,
+                        size: 16.sp,
+                      ),
+                    )
+                  ],
+                ),
               ),
             );
           }

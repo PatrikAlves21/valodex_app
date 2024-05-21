@@ -1,7 +1,8 @@
+import 'package:app_valorant/pages/details_maps_page.dart';
 import 'package:app_valorant/pages/home_page.dart';
 import 'package:app_valorant/pages/maps_page.dart';
 import 'package:flutter/material.dart';
-import '../components/details_agents_page.dart';
+import '../pages/details_agents_page.dart';
 
 class AppRoutes {
   static final routes = <String, WidgetBuilder>{
@@ -9,6 +10,8 @@ class AppRoutes {
     '/maps': (BuildContext context) => const MapsPage(),
     '/detailsAgents': (BuildContext context) =>
         AgentDetailsPage(ModalRoute.of(context)!.settings.arguments),
+    '/detailsMaps': (BuildContext context) =>
+        DetailsMapsPage(ModalRoute.of(context)!.settings.arguments),
   };
 
   static GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
