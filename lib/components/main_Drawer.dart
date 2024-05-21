@@ -5,8 +5,7 @@ import 'package:app_valorant/app/app_module.dart';
 import 'package:app_valorant/models/enums.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:iconsax/iconsax.dart';
 
 import '../shared/app_colors.dart';
 import '../shared/material_colors.dart';
@@ -28,50 +27,12 @@ class _MainDrawerState extends State<MainDrawer> {
   Widget build(BuildContext context) {
     return Drawer(
       child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: backgroundPage,
-          elevation: 0,
-          automaticallyImplyLeading: false,
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Container(
-                  padding: const EdgeInsets.only(
-                    top: 4,
-                  ),
-                  child: SvgPicture.asset(
-                    'assets/images/logo.svg',
-                    color: textColor,
-                    width: MediaQuery.sizeOf(context).height * 0.06,
-                  )),
-              Container(
-                padding: const EdgeInsets.only(top: 4),
-                child: IconButton(
-                  onPressed: () async {
-                    Navigator.of(context).pop();
-                  },
-                  icon: Icon(
-                    Icons.close,
-                    color: textGrey,
-                    size: 24,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
         backgroundColor: backgroundPage,
         body: Column(
           children: [
-            Divider(
-              thickness: 1,
-              height: 1,
-              color: textGrey,
-            ),
-            const SizedBox(height: 16),
+            SizedBox(height: MediaQuery.sizeOf(context).height * 0.08),
             _menuItemButton(
-              icon: FontAwesomeIcons.users,
-              iconSize: 16,
+              icon: Iconsax.user,
               title: "Agentes",
               selected: page == SelectedPage.AGENTS,
               onTap: () async {
@@ -82,8 +43,7 @@ class _MainDrawerState extends State<MainDrawer> {
               },
             ),
             _menuItemButton(
-              icon: FontAwesomeIcons.map,
-              iconSize: 18,
+              icon: Iconsax.map,
               title: "Mapas",
               selected: page == SelectedPage.MAPSPAGE,
               onTap: () async {
@@ -132,10 +92,10 @@ class _MainDrawerState extends State<MainDrawer> {
           SizedBox(width: iconLeftPadding ?? 16),
           Visibility(
             visible: isVisibleIcon,
-            child: FaIcon(
+            child: Icon(
               icon,
               color: textColor,
-              size: iconSize ?? 20,
+              size: iconSize ?? 20.sp,
             ),
           ),
           const SizedBox(width: 12),
