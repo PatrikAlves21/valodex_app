@@ -20,7 +20,7 @@ class MapsContainer extends StatelessWidget {
             width: MediaQuery.sizeOf(context).width,
             decoration: BoxDecoration(
               border: Border.all(
-                color: borderCard.withOpacity(0.2),
+                color: Colors.red,
                 style: BorderStyle.solid,
                 width: 1.0,
               ),
@@ -40,7 +40,7 @@ class MapsContainer extends StatelessWidget {
               height: MediaQuery.sizeOf(context).height * 0.15,
               decoration: BoxDecoration(
                 border: Border.all(
-                  color: borderCard.withOpacity(0.2),
+                  color: Colors.red,
                   style: BorderStyle.solid,
                   width: 1.0,
                 ),
@@ -72,7 +72,7 @@ class MapsContainer extends StatelessWidget {
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
         border: Border.all(
-          color: borderCard.withOpacity(0.2),
+          color: Colors.red,
           style: BorderStyle.solid,
           width: 1.0,
         ),

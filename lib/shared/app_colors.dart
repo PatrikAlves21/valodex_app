@@ -13,8 +13,6 @@ Color fontColorTerciary = const Color(0xFF383E3A);
 
 Color strokeColor = const Color(0xFF928F8B);
 
-Color borderCard = const Color(0xFFe5e5e5);
-
 Color borderButtonGrey = Colors.grey[300]!;
 
 Color textColor = Colors.white;
