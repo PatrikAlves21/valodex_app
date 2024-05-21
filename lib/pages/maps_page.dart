@@ -5,10 +5,9 @@ import 'package:app_valorant/components/scaffold_default.dart';
 import 'package:app_valorant/models/maps_model.dart';
 import 'package:app_valorant/models/enums.dart';
 import 'package:app_valorant/shared/http_service.dart';
+import 'package:app_valorant/styles/extension_texts.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../app/app_module.dart';
 import '../models/request_default_model.dart';
 import '../shared/app_colors.dart';
@@ -49,24 +48,20 @@ class _MapsPageState extends State<MapsPage> {
                   children: [
                     Row(
                       children: [
-                        Text(
-                          'Mapas',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18.sp,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
+                        const Text('Mapas')
+                            .h1(style: TextStyle(color: valorantPrimary)),
                       ],
                     ),
                     const SizedBox(height: 16),
                     Expanded(
-                      child: ListView(
-                          children: snapshot.data!.data!
-                              .map(
-                                (maps) => MapsContainer(maps: maps),
-                              )
-                              .toList()),
+                      child: SingleChildScrollView(
+                        child: Column(
+                            children: snapshot.data!.data!
+                                .map(
+                                  (maps) => MapsContainer(maps: maps),
+                                )
+                                .toList()),
+                      ),
                     ),
                   ],
                 );

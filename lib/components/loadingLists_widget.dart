@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../shared/app_colors.dart';
 
 class LoadingListWidget extends StatelessWidget {
@@ -19,10 +18,10 @@ class LoadingListWidget extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const SizedBox(
-              height: 20,
-              width: 20,
-              child: CircularProgressIndicator(
+            SizedBox(
+              height: 20.sp,
+              width: 20.sp,
+              child: const CircularProgressIndicator(
                 strokeWidth: 2,
               ),
             ),

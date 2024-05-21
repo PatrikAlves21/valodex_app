@@ -44,6 +44,8 @@ dependencies:
   flutter_screenutil: ^5.9.0
   hexcolor: ^3.0.1
   iconsax: ^0.0.8
+  shimmer: ^3.0.0
+
 
 dev_dependencies:
   flutter_test:
