@@ -53,6 +53,17 @@ class _MainDrawerState extends State<MainDrawer> {
                 Navigator.of(context).pushReplacementNamed("/maps");
               },
             ),
+            _menuItemButton(
+              icon: Iconsax.shop_add,
+              title: "Arsenal",
+              selected: page == SelectedPage.WEAPONSPAGE,
+              onTap: () async {
+                if (page == SelectedPage.WEAPONSPAGE) {
+                  return Navigator.of(context).pop();
+                }
+                Navigator.of(context).pushReplacementNamed("/weapons");
+              },
+            ),
           ],
         ),
         bottomSheet: BottomSheet(
