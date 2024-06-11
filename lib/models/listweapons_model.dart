@@ -36,19 +36,16 @@ class WeaponStatsModel {
   var reloadTimeSeconds;
   var firstBulletAccuracy;
   var shotgunPelletCount;
-  AdsStatsModel? adsStats;
-  List<DamageRangesModel>? damageRanges;
 
-  WeaponStatsModel(
-      {this.fireRate,
-      this.magazineSize,
-      this.runSpeedMultiplier,
-      this.equipTimeSeconds,
-      this.reloadTimeSeconds,
-      this.firstBulletAccuracy,
-      this.shotgunPelletCount,
-      this.adsStats,
-      this.damageRanges});
+  WeaponStatsModel({
+    this.fireRate,
+    this.magazineSize,
+    this.runSpeedMultiplier,
+    this.equipTimeSeconds,
+    this.reloadTimeSeconds,
+    this.firstBulletAccuracy,
+    this.shotgunPelletCount,
+  });
 
   WeaponStatsModel.fromJson(Map<String, dynamic> json) {
     fireRate = json['fireRate'];
@@ -58,15 +55,6 @@ class WeaponStatsModel {
     reloadTimeSeconds = json['reloadTimeSeconds'];
     firstBulletAccuracy = json['firstBulletAccuracy'];
     shotgunPelletCount = json['shotgunPelletCount'];
-    adsStats = json['adsStats'] != null
-        ? AdsStatsModel.fromJson(json['adsStats'])
-        : null;
-    if (json['damageRanges'] != null) {
-      damageRanges = <DamageRangesModel>[];
-      json['damageRanges'].forEach((v) {
-        damageRanges!.add(DamageRangesModel.fromJson(v));
-      });
-    }
   }
 
   Map<String, dynamic> toJson() {
@@ -78,78 +66,7 @@ class WeaponStatsModel {
     data['reloadTimeSeconds'] = reloadTimeSeconds;
     data['firstBulletAccuracy'] = firstBulletAccuracy;
     data['shotgunPelletCount'] = shotgunPelletCount;
-    if (adsStats != null) {
-      data['adsStats'] = adsStats!.toJson();
-    }
-    if (damageRanges != null) {
-      data['damageRanges'] = damageRanges!.map((v) => v.toJson()).toList();
-    }
-    return data;
-  }
-}
 
-class AdsStatsModel {
-  var zoomMultiplier;
-  var fireRate;
-  var runSpeedMultiplier;
-  var burstCount;
-  var firstBulletAccuracy;
-
-  AdsStatsModel(
-      {this.zoomMultiplier,
-      this.fireRate,
-      this.runSpeedMultiplier,
-      this.burstCount,
-      this.firstBulletAccuracy});
-
-  AdsStatsModel.fromJson(Map<String, dynamic> json) {
-    zoomMultiplier = json['zoomMultiplier'];
-    fireRate = json['fireRate'];
-    runSpeedMultiplier = json['runSpeedMultiplier'];
-    burstCount = json['burstCount'];
-    firstBulletAccuracy = json['firstBulletAccuracy'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['zoomMultiplier'] = zoomMultiplier;
-    data['fireRate'] = fireRate;
-    data['runSpeedMultiplier'] = runSpeedMultiplier;
-    data['burstCount'] = burstCount;
-    data['firstBulletAccuracy'] = firstBulletAccuracy;
-    return data;
-  }
-}
-
-class DamageRangesModel {
-  var rangeStartMeters;
-  var rangeEndMeters;
-  var headDamage;
-  var bodyDamage;
-  var legDamage;
-
-  DamageRangesModel(
-      {this.rangeStartMeters,
-      this.rangeEndMeters,
-      this.headDamage,
-      this.bodyDamage,
-      this.legDamage});
-
-  DamageRangesModel.fromJson(Map<String, dynamic> json) {
-    rangeStartMeters = json['rangeStartMeters'];
-    rangeEndMeters = json['rangeEndMeters'];
-    headDamage = json['headDamage'];
-    bodyDamage = json['bodyDamage'];
-    legDamage = json['legDamage'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['rangeStartMeters'] = rangeStartMeters;
-    data['rangeEndMeters'] = rangeEndMeters;
-    data['headDamage'] = headDamage;
-    data['bodyDamage'] = bodyDamage;
-    data['legDamage'] = legDamage;
     return data;
   }
 }
