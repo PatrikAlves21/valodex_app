@@ -1,4 +1,5 @@
 import 'package:app_valorant/pages/details_maps_page.dart';
+import 'package:app_valorant/pages/details_weapons_page.dart';
 import 'package:app_valorant/pages/home_page.dart';
 import 'package:app_valorant/pages/maps_page.dart';
 import 'package:app_valorant/pages/weapons_page.dart';
@@ -15,7 +16,7 @@ class AppRoutes {
     '/detailsMaps': (BuildContext context) =>
         DetailsMapsPage(ModalRoute.of(context)!.settings.arguments),
     '/detailsWeapons': (BuildContext context) =>
-        DetailsMapsPage(ModalRoute.of(context)!.settings.arguments),
+        DetailsWeaponsPage(ModalRoute.of(context)!.settings.arguments),
   };
 
   static GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();

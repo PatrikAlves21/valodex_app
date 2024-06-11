@@ -1,8 +1,9 @@
-import 'package:app_valorant/models/listWeapons_model.dart';
 import 'package:app_valorant/shared/app_colors.dart';
 import 'package:app_valorant/styles/extension_texts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../models/weapons_model.dart';
 
 class WeaponsContainer extends StatelessWidget {
   final WeaponsModel weapon;
@@ -12,8 +13,8 @@ class WeaponsContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        // Navigator.of(context)
-        //     .pushNamed("/detailsWeapons", arguments: {'arguments': weapon});
+        Navigator.of(context)
+            .pushNamed("/detailsWeapons", arguments: {'arguments': weapon});
       },
       child: Container(
         margin: const EdgeInsets.only(bottom: 16),
