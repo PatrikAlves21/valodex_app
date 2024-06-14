@@ -10,15 +10,16 @@ class WeaponsModel {
   ShopDataModel? shopData;
   List<SkinsModel>? skins;
 
-  WeaponsModel(
-      {this.uuid,
-      this.displayName,
-      this.category,
-      this.displayIcon,
-      this.killStreamIcon,
-      this.weaponStats,
-      this.shopData,
-      this.skins});
+  WeaponsModel({
+    this.uuid,
+    this.displayName,
+    this.category,
+    this.displayIcon,
+    this.killStreamIcon,
+    this.weaponStats,
+    this.shopData,
+    this.skins,
+  });
 
   WeaponsModel.fromJson(Map<String, dynamic> json) {
     uuid = json['uuid'];

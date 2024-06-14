@@ -105,7 +105,7 @@ class _MainDrawerState extends State<MainDrawer> {
             visible: isVisibleIcon,
             child: Icon(
               icon,
-              color: textColor,
+              color: textColorWhite,
               size: iconSize ?? 24.sp,
             ),
           ),
@@ -113,7 +113,7 @@ class _MainDrawerState extends State<MainDrawer> {
           Text(
             title,
             style: TextStyle(
-              color: textColor,
+              color: textColorWhite,
               fontWeight: FontWeight.w400,
               fontSize: 18.sp,
             ),

@@ -42,7 +42,7 @@ class _BottomSheetDefaultState extends State<BottomSheetDefault> {
                 Expanded(
                     child: Text(widget.title,
                         style: TextStyle(
-                            color: textColor,
+                            color: textColorWhite,
                             fontSize: 18.sp,
                             fontWeight: FontWeight.w600))),
                 InkWell(
@@ -55,7 +55,7 @@ class _BottomSheetDefaultState extends State<BottomSheetDefault> {
                     child: Icon(
                       Icons.clear,
                       size: 25,
-                      color: textGrey,
+                      color: fontColorSecondary,
                     ),
                   ),
                 ),

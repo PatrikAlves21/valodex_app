@@ -113,7 +113,7 @@ class MapsContainer extends StatelessWidget {
               child: Text(
                 'Ocorreu um erro ao carregar as informações.',
                 style: TextStyle(
-                  color: textColor,
+                  color: textColorWhite,
                   fontSize: 12.sp,
                   fontWeight: FontWeight.w500,
                 ),

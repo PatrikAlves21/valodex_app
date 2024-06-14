@@ -7,7 +7,6 @@ import 'package:app_valorant/styles/extension_texts.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../components/loadingLists_widget.dart';
 import '../components/scaffold_default.dart';
 import '../models/list_config_weapons.dart';
@@ -62,7 +61,10 @@ class _WeaponsPageState extends State<WeaponsPage> {
                       Expanded(
                         child: ListView(
                           children: snapshot.data!.data!
-                              .map((weapon) => WeaponsContainer(weapon: weapon))
+                              .map((weapon) => WeaponsContainer(
+                                    weapon: weapon,
+                                    listConfig: listConfig!,
+                                  ))
                               .toList(),
                         ),
                       ),
@@ -73,17 +75,17 @@ class _WeaponsPageState extends State<WeaponsPage> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Icon(
+                        Icon(
                           Icons.error_outline,
                           color: Colors.red,
-                          size: 60,
+                          size: 60.sp,
                         ),
                         Padding(
                           padding: const EdgeInsets.only(top: 16),
                           child: Text(
                             'Ocorreu um erro ao carregar as informações.',
                             style: TextStyle(
-                              color: textColor,
+                              color: textColorWhite,
                               fontSize: 14.sp,
                               fontWeight: FontWeight.w600,
                             ),

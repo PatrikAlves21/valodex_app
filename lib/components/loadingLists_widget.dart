@@ -29,7 +29,7 @@ class LoadingListWidget extends StatelessWidget {
             Text(
               title ?? "Buscando informações...",
               style: TextStyle(
-                color: textColor,
+                color: fontColorPrimary,
                 fontSize: 16.sp,
                 fontWeight: FontWeight.w600,
               ),

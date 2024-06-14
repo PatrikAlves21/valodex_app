@@ -36,16 +36,17 @@ class WeaponStatsModel {
   num? reloadTimeSeconds;
   num? firstBulletAccuracy;
   num? shotgunPelletCount;
+  List<DamageRanges>? damageRanges;
 
-  WeaponStatsModel({
-    this.fireRate,
-    this.magazineSize,
-    this.runSpeedMultiplier,
-    this.equipTimeSeconds,
-    this.reloadTimeSeconds,
-    this.firstBulletAccuracy,
-    this.shotgunPelletCount,
-  });
+  WeaponStatsModel(
+      {this.fireRate,
+      this.magazineSize,
+      this.runSpeedMultiplier,
+      this.equipTimeSeconds,
+      this.reloadTimeSeconds,
+      this.firstBulletAccuracy,
+      this.shotgunPelletCount,
+      this.damageRanges});
 
   WeaponStatsModel.fromJson(Map<String, dynamic> json) {
     fireRate = json['fireRate'];
@@ -55,6 +56,12 @@ class WeaponStatsModel {
     reloadTimeSeconds = json['reloadTimeSeconds'];
     firstBulletAccuracy = json['firstBulletAccuracy'];
     shotgunPelletCount = json['shotgunPelletCount'];
+    if (json['damageRanges'] != null) {
+      damageRanges = <DamageRanges>[];
+      json['damageRanges'].forEach((v) {
+        damageRanges!.add(DamageRanges.fromJson(v));
+      });
+    }
   }
 
   Map<String, dynamic> toJson() {
@@ -105,6 +112,37 @@ class SkinsModel {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['displayName'] = displayName;
     data['displayIcon'] = displayIcon;
+    return data;
+  }
+}
+
+class DamageRanges {
+  int? rangeStartMeters;
+  int? rangeEndMeters;
+  num? headDamage;
+  num? bodyDamage;
+  num? legDamage;
+
+  DamageRanges(
+      {this.rangeStartMeters,
+      this.rangeEndMeters,
+      this.headDamage,
+      this.bodyDamage,
+      this.legDamage});
+
+  DamageRanges.fromJson(Map<String, dynamic> json) {
+    rangeStartMeters = json['rangeStartMeters'];
+    rangeEndMeters = json['rangeEndMeters'];
+    headDamage = json['headDamage'];
+    bodyDamage = json['bodyDamage'];
+    legDamage = json['legDamage'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['headDamage'] = headDamage;
+    data['bodyDamage'] = bodyDamage;
+    data['legDamage'] = legDamage;
     return data;
   }
 }

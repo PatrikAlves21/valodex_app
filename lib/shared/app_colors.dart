@@ -15,8 +15,4 @@ Color strokeColor = const Color(0xFF928F8B);
 
 Color borderButtonGrey = Colors.grey[300]!;
 
-Color textColor = Colors.white;
-
-Color textGrey = Colors.grey[600]!;
-
-Color hintTextColor = Colors.grey[600]!;
+Color textColorWhite = Colors.white;

@@ -2,19 +2,21 @@ import 'package:app_valorant/shared/app_colors.dart';
 import 'package:app_valorant/styles/extension_texts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import '../models/list_config_weapons.dart';
 import '../models/weapons_model.dart';
 
 class WeaponsContainer extends StatelessWidget {
   final WeaponsModel weapon;
-  const WeaponsContainer({super.key, required this.weapon});
+  final ListConfigWeapons listConfig;
+  const WeaponsContainer(
+      {super.key, required this.weapon, required this.listConfig});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.of(context)
-            .pushNamed("/detailsWeapons", arguments: {'arguments': weapon});
+        Navigator.of(context).pushNamed("/detailsWeapons",
+            arguments: {'weapon': weapon, 'config': listConfig});
       },
       child: Container(
         margin: const EdgeInsets.only(bottom: 16),

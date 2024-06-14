@@ -80,7 +80,7 @@ class _MapsPageState extends State<MapsPage> {
                         child: Text(
                           'Ocorreu um erro ao carregar as informações.',
                           style: TextStyle(
-                            color: textColor,
+                            color: textColorWhite,
                             fontSize: 14,
                             fontWeight: FontWeight.w600,
                           ),

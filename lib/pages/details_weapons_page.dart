@@ -1,6 +1,9 @@
+import 'package:app_valorant/components/weapons_stats_details.dart';
+import 'package:app_valorant/models/damage_model.dart';
 import 'package:app_valorant/styles/extension_texts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../models/list_config_weapons.dart';
 import '../models/weapons_model.dart';
 import '../shared/app_colors.dart';
 
@@ -14,11 +17,16 @@ class DetailsWeaponsPage extends StatefulWidget {
 
 class _DetailsWeaponsPageState extends State<DetailsWeaponsPage> {
   late WeaponsModel weapons;
+  late ListConfigWeapons config;
+
+  List<DamageConfigModel> listData = [];
 
   @override
   void initState() {
-    weapons = widget.arguments['arguments'];
     super.initState();
+    weapons = widget.arguments['weapon'];
+    config = widget.arguments['config'];
+    createListConfig();
   }
 
   @override
@@ -73,9 +81,6 @@ class _DetailsWeaponsPageState extends State<DetailsWeaponsPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(
-                    height: 24,
-                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -92,10 +97,63 @@ class _DetailsWeaponsPageState extends State<DetailsWeaponsPage> {
                     ],
                   ),
                   const SizedBox(
-                    height: 4,
+                    height: 8,
                   ),
                   Row(
-                    children: [],
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(
+                        child: WeaponsStatsDetails(
+                          title: 'FIRE RATE',
+                          value: weapons.weaponStats?.fireRate ?? 0,
+                          description: 'RDS/SEC',
+                          percentage: calculatePercentage(
+                              percentage: weapons.weaponStats?.fireRate ?? 0,
+                              total: config.fireRate),
+                        ),
+                      ),
+                      const SizedBox(width: 16),
+                      Expanded(
+                        child: WeaponsStatsDetails(
+                          title: 'EQUIP SPEED',
+                          value: weapons.weaponStats?.equipTimeSeconds ?? 0,
+                          description: 'M/SEC',
+                          percentage: calculatePercentage(
+                              percentage:
+                                  weapons.weaponStats?.equipTimeSeconds ?? 0,
+                              total: config.equipSpeed),
+                        ),
+                      )
+                    ],
+                  ),
+                  const SizedBox(height: 16),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(
+                        child: WeaponsStatsDetails(
+                          title: 'MAGAZINE',
+                          value: weapons.weaponStats?.magazineSize ?? 0,
+                          description: 'RDS',
+                          percentage: calculatePercentage(
+                              percentage:
+                                  weapons.weaponStats?.magazineSize ?? 0,
+                              total: config.magazineSize),
+                        ),
+                      ),
+                      const SizedBox(width: 16),
+                      Expanded(
+                        child: WeaponsStatsDetails(
+                          title: 'RELOAD SPEED',
+                          value: weapons.weaponStats?.reloadTimeSeconds ?? 0,
+                          description: 'SEC',
+                          percentage: calculatePercentage(
+                              percentage:
+                                  weapons.weaponStats?.reloadTimeSeconds ?? 0,
+                              total: config.reloadSpeed),
+                        ),
+                      )
+                    ],
                   )
                 ],
               ),
@@ -115,6 +173,41 @@ class _DetailsWeaponsPageState extends State<DetailsWeaponsPage> {
           ),
         ],
       ),
+    );
+  }
+
+  double calculatePercentage({required num percentage, required num total}) {
+    return (percentage / total) * 100;
+  }
+
+  createListConfig() {
+    listData.addAll(
+      [
+        DamageConfigModel(
+            title: 'Cabeça',
+            values: weapons.weaponStats?.damageRanges!
+                .map((damage) => ValuesDamageModel(
+                    description:
+                        "${damage.rangeStartMeters} - ${damage.rangeEndMeters}m",
+                    value: damage.headDamage))
+                .toList()),
+        DamageConfigModel(
+            title: 'Corpo',
+            values: weapons.weaponStats?.damageRanges!
+                .map((damage) => ValuesDamageModel(
+                    description:
+                        "${damage.rangeStartMeters} - ${damage.rangeEndMeters}m",
+                    value: damage.bodyDamage))
+                .toList()),
+        DamageConfigModel(
+            title: 'Pernas',
+            values: weapons.weaponStats?.damageRanges!
+                .map((damage) => ValuesDamageModel(
+                    description:
+                        "${damage.rangeStartMeters} - ${damage.rangeEndMeters}m",
+                    value: damage.legDamage))
+                .toList()),
+      ],
     );
   }
 }
