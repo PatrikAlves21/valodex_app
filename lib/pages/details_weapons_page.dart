@@ -1,3 +1,4 @@
+import 'package:app_valorant/components/weapons_stats_damage.dart';
 import 'package:app_valorant/components/weapons_stats_details.dart';
 import 'package:app_valorant/models/damage_model.dart';
 import 'package:app_valorant/styles/extension_texts.dart';
@@ -78,84 +79,94 @@ class _DetailsWeaponsPageState extends State<DetailsWeaponsPage> {
                   topRight: Radius.circular(16.sp),
                 ),
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(weapons.displayName!)
-                          .h1(style: TextStyle(color: valorantPrimary)),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      const Text('ESTATÍSTICAS').h2(
-                        style: TextStyle(
-                            color: fontColorSecondary, fontSize: 24.sp),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 8,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Expanded(
-                        child: WeaponsStatsDetails(
-                          title: 'FIRE RATE',
-                          value: weapons.weaponStats?.fireRate ?? 0,
-                          description: 'RDS/SEC',
-                          percentage: calculatePercentage(
-                              percentage: weapons.weaponStats?.fireRate ?? 0,
-                              total: config.fireRate),
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(weapons.displayName!)
+                            .h1(style: TextStyle(color: valorantPrimary)),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        const Text('ESTATÍSTICAS').h2(
+                          style: TextStyle(
+                              color: fontColorSecondary, fontSize: 24.sp),
                         ),
-                      ),
-                      const SizedBox(width: 16),
-                      Expanded(
-                        child: WeaponsStatsDetails(
-                          title: 'EQUIP SPEED',
-                          value: weapons.weaponStats?.equipTimeSeconds ?? 0,
-                          description: 'M/SEC',
-                          percentage: calculatePercentage(
-                              percentage:
-                                  weapons.weaponStats?.equipTimeSeconds ?? 0,
-                              total: config.equipSpeed),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(
+                          child: WeaponsStatsDetails(
+                            title: 'FIRE RATE',
+                            value: weapons.weaponStats?.fireRate ?? 0,
+                            description: 'RDS/SEC',
+                            percentage: calculatePercentage(
+                                percentage: weapons.weaponStats?.fireRate ?? 0,
+                                total: config.fireRate),
+                          ),
                         ),
-                      )
-                    ],
-                  ),
-                  const SizedBox(height: 16),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Expanded(
-                        child: WeaponsStatsDetails(
-                          title: 'MAGAZINE',
-                          value: weapons.weaponStats?.magazineSize ?? 0,
-                          description: 'RDS',
-                          percentage: calculatePercentage(
-                              percentage:
-                                  weapons.weaponStats?.magazineSize ?? 0,
-                              total: config.magazineSize),
+                        const SizedBox(width: 16),
+                        Expanded(
+                          child: WeaponsStatsDetails(
+                            title: 'EQUIP SPEED',
+                            value: weapons.weaponStats?.equipTimeSeconds ?? 0,
+                            description: 'M/SEC',
+                            percentage: calculatePercentage(
+                                percentage:
+                                    weapons.weaponStats?.equipTimeSeconds ?? 0,
+                                total: config.equipSpeed),
+                          ),
+                        )
+                      ],
+                    ),
+                    const SizedBox(height: 16),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(
+                          child: WeaponsStatsDetails(
+                            title: 'MAGAZINE',
+                            value: weapons.weaponStats?.magazineSize ?? 0,
+                            description: 'RDS',
+                            percentage: calculatePercentage(
+                                percentage:
+                                    weapons.weaponStats?.magazineSize ?? 0,
+                                total: config.magazineSize),
+                          ),
                         ),
-                      ),
-                      const SizedBox(width: 16),
-                      Expanded(
-                        child: WeaponsStatsDetails(
-                          title: 'RELOAD SPEED',
-                          value: weapons.weaponStats?.reloadTimeSeconds ?? 0,
-                          description: 'SEC',
-                          percentage: calculatePercentage(
-                              percentage:
-                                  weapons.weaponStats?.reloadTimeSeconds ?? 0,
-                              total: config.reloadSpeed),
-                        ),
-                      )
-                    ],
-                  )
-                ],
+                        const SizedBox(width: 16),
+                        Expanded(
+                          child: WeaponsStatsDetails(
+                            title: 'RELOAD SPEED',
+                            value: weapons.weaponStats?.reloadTimeSeconds ?? 0,
+                            description: 'SEC',
+                            percentage: calculatePercentage(
+                                percentage:
+                                    weapons.weaponStats?.reloadTimeSeconds ?? 0,
+                                total: config.reloadSpeed),
+                          ),
+                        )
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    Column(
+                      children: listData
+                          .map((data) => WeaponsStatsDamage(data: data))
+                          .toList(),
+                    )
+                  ],
+                ),
               ),
             ),
           ),
