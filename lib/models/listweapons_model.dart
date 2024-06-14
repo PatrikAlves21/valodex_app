@@ -29,13 +29,13 @@ class ListWeaponsModel {
 }
 
 class WeaponStatsModel {
-  var fireRate;
-  var magazineSize;
-  var runSpeedMultiplier;
-  var equipTimeSeconds;
-  var reloadTimeSeconds;
-  var firstBulletAccuracy;
-  var shotgunPelletCount;
+  num? fireRate;
+  num? magazineSize;
+  num? runSpeedMultiplier;
+  num? equipTimeSeconds;
+  num? reloadTimeSeconds;
+  num? firstBulletAccuracy;
+  num? shotgunPelletCount;
 
   WeaponStatsModel({
     this.fireRate,

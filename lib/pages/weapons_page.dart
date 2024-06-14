@@ -10,6 +10,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../components/loadingLists_widget.dart';
 import '../components/scaffold_default.dart';
+import '../models/list_config_weapons.dart';
 import '../models/request_default_model.dart';
 import '../shared/app_colors.dart';
 import '../shared/http_service.dart';
@@ -25,6 +26,8 @@ class _WeaponsPageState extends State<WeaponsPage> {
   HttpService get httpService => AppModule.to.getDependency<HttpService>();
 
   late Future<ListWeaponsModel> weapons;
+
+  ListConfigWeapons? listConfig;
 
   @override
   void initState() {
@@ -99,6 +102,30 @@ class _WeaponsPageState extends State<WeaponsPage> {
     Response response = await httpService
         .get(AppRoutes.weapons, queryParams: {...RequestDefault.language});
 
-    return ListWeaponsModel.fromJson(response.data);
+    ListWeaponsModel listWeapons = ListWeaponsModel.fromJson(response.data);
+
+    createListConfig(listWeapons);
+
+    return listWeapons;
+  }
+
+  createListConfig(ListWeaponsModel list) {
+    List<num> fireRate = [];
+    List magazine = [];
+    List reload = [];
+    List equip = [];
+    list.data?.forEach((weapons) {
+      fireRate.add(weapons.weaponStats?.fireRate ?? 0);
+      magazine.add(weapons.weaponStats?.magazineSize ?? 0);
+      reload.add(weapons.weaponStats?.reloadTimeSeconds ?? 0);
+      equip.add(weapons.weaponStats?.equipTimeSeconds ?? 0);
+    });
+
+    listConfig = ListConfigWeapons(
+      fireRate: fireRate.reduce((curr, next) => curr > next ? curr : next),
+      magazineSize: magazine.reduce((curr, next) => curr > next ? curr : next),
+      equipSpeed: equip.reduce((curr, next) => curr > next ? curr : next),
+      reloadSpeed: reload.reduce((curr, next) => curr > next ? curr : next),
+    );
   }
 }
