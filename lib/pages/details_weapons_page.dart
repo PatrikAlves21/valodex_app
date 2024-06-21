@@ -158,6 +158,17 @@ class _DetailsWeaponsPageState extends State<DetailsWeaponsPage> {
                       ],
                     ),
                     const SizedBox(
+                      height: 16,
+                    ),
+                    Row(
+                      children: [
+                        const Text('DANO').h2(
+                          style: TextStyle(
+                              color: fontColorSecondary, fontSize: 24.sp),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
                       height: 8,
                     ),
                     Column(
