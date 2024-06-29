@@ -1,4 +1,5 @@
-import 'package:app_valorant/models/listWeapons_model.dart';
+import 'package:app_valorant/models/skins_model.dart';
+import 'package:app_valorant/models/stats_model.dart';
 
 class WeaponsModel {
   String? uuid;

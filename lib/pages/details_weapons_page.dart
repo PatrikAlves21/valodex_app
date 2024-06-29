@@ -1,11 +1,12 @@
+import 'package:app_valorant/components/gridview_skins.dart';
 import 'package:app_valorant/components/weapons_stats_damage.dart';
 import 'package:app_valorant/components/weapons_stats_details.dart';
 import 'package:app_valorant/models/damage_model.dart';
+import 'package:app_valorant/models/weapons_model.dart';
 import 'package:app_valorant/styles/extension_texts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../models/list_config_weapons.dart';
-import '../models/weapons_model.dart';
 import '../shared/app_colors.dart';
 
 class DetailsWeaponsPage extends StatefulWidget {
@@ -189,6 +190,10 @@ class _DetailsWeaponsPageState extends State<DetailsWeaponsPage> {
                     ),
                     const SizedBox(
                       height: 16,
+                    ),
+                    GridViewSkinsWidget(listSkins: weapons.skins!),
+                    SizedBox(
+                      height: 56.sp,
                     ),
                   ],
                 ),
