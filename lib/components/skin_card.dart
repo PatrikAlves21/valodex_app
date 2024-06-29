@@ -12,35 +12,38 @@ class SkinCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CardStatsWidget(
-      margin: const EdgeInsets.only(right: 16),
-      child: SizedBox(
-        height: 80.sp,
-        child: Column(
-          children: [
-            if (skin.displayIcon != null)
-              Image.network(
-                skin.displayIcon!,
-                height: 40.sp,
-              ),
-            if (skin.displayIcon == null)
-              SizedBox(
-                height: 40.sp,
-                width: 40.sp,
-                child: Center(
-                  child: Icon(
-                    Iconsax.info_circle5,
-                    size: 24.sp,
-                    color: valorantPrimary,
+    return GestureDetector(
+      onTap: () => false,
+      child: CardStatsWidget(
+        margin: const EdgeInsets.only(right: 16),
+        child: SizedBox(
+          height: 80.sp,
+          child: Column(
+            children: [
+              if (skin.displayIcon != null)
+                Image.network(
+                  skin.displayIcon!,
+                  height: 40.sp,
+                ),
+              if (skin.displayIcon == null)
+                SizedBox(
+                  height: 40.sp,
+                  width: 40.sp,
+                  child: Center(
+                    child: Icon(
+                      Iconsax.info_circle5,
+                      size: 24.sp,
+                      color: valorantPrimary,
+                    ),
                   ),
                 ),
+              SizedBox(
+                height: 8.sp,
               ),
-            SizedBox(
-              height: 8.sp,
-            ),
-            Text(skin.displayName!)
-                .h3(style: TextStyle(color: fontColorSecondary))
-          ],
+              Text(skin.displayName!)
+                  .h3(style: TextStyle(color: fontColorSecondary))
+            ],
+          ),
         ),
       ),
     );
