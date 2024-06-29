@@ -32,7 +32,6 @@ class _AppWidgetState extends State<AppWidget> {
         );
         var keyboardVisibilityController = KeyboardVisibilityController();
 
-        // Subscribe
         keyboardVisibilityController.onChange.listen((bool visible) {
           appBloc.setKeyboardVisibility(visible);
         });
@@ -42,7 +41,7 @@ class _AppWidgetState extends State<AppWidget> {
           navigatorKey: AppRoutes.navigatorKey,
           theme: ThemeData(
             useMaterial3: true,
-            scaffoldBackgroundColor: Colors.white,
+            scaffoldBackgroundColor: Colors.black,
             primarySwatch: AppMaterialColor.valorantAppColors,
             canvasColor: Colors.transparent,
             textTheme: Theme.of(context).textTheme.apply(

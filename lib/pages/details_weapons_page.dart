@@ -175,7 +175,21 @@ class _DetailsWeaponsPageState extends State<DetailsWeaponsPage> {
                       children: listData
                           .map((data) => WeaponsStatsDamage(data: data))
                           .toList(),
-                    )
+                    ),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    Row(
+                      children: [
+                        const Text('SKINS').h2(
+                          style: TextStyle(
+                              color: fontColorSecondary, fontSize: 24.sp),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 16,
+                    ),
                   ],
                 ),
               ),
