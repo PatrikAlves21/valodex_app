@@ -4,7 +4,8 @@ Consumindo a api: https://valorant-api.com/
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/86defb62-9e98-45f2-b8b3-e5eb4b23031e" alt="Imagem principal" width="200"/>
-  <img src="URL_DA_IMAGEM_2" alt="Descrição da Imagem 2" width="200"/>
+  <img src="https://github.com/user-attachments/assets/b37fb844-9fc9-47c8-aea8-6d31b970f7c9" alt="Imagem 02" width="200"/>
+  <img src="https://github.com/user-attachments/assets/bacebcbb-4f78-4996-9d14-c9ab7a715bb3" alt="Imagem 03" width="200"/>
 </p>
 
 Descrição:
@@ -23,4 +24,4 @@ Pesquisa Fácil: Encontre rapidamente o agente ou mapa que você está procurand
 
 Interface Intuitiva: Design moderno e fácil de usar, oferecendo uma navegação fluida e agradável.
 
-O Valorant Guide é a ferramenta perfeita para jogadores de todos os níveis, desde iniciantes até profissionais, que desejam melhorar seu conhecimento sobre o jogo e maximizar suas estratégias.
+O Valodex é a ferramenta perfeita para jogadores de todos os níveis, desde iniciantes até profissionais, que desejam melhorar seu conhecimento sobre o jogo e maximizar suas estratégias.
