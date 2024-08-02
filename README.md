@@ -1,4 +1,11 @@
-Valodex
+ # Valodex_app
+
+Consumindo a api: https://valorant-api.com/
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/86defb62-9e98-45f2-b8b3-e5eb4b23031e" alt="Imagem principal" width="200"/>
+  <img src="URL_DA_IMAGEM_2" alt="Descrição da Imagem 2" width="200"/>
+</p>
 
 Descrição:
 
