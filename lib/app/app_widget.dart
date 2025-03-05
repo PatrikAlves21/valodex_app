@@ -28,7 +28,7 @@ class _AppWidgetState extends State<AppWidget> {
       builder: (context, constraints) {
         ScreenUtil.init(
           context,
-          designSize: const Size(360, 640),
+          designSize: const Size(360, 800),
         );
         var keyboardVisibilityController = KeyboardVisibilityController();
 

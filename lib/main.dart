@@ -5,8 +5,6 @@ import 'package:intl/date_symbol_data_local.dart' as intl_local_date_data;
 import 'package:intl/intl.dart';
 
 void main() async {
-  //runApp(const SplashScreemPage());
-
   WidgetsFlutterBinding.ensureInitialized();
 
   var intl = intl_local_date_data.initializeDateFormatting("pt_BR");
